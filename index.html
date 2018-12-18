@@ -37,18 +37,25 @@
         document.getElementById("letterGuessed").innerHTML = playerGuessArray;
         console.log(playerChoice);
 
+        guessesLeft.textContent = parseInt(guessesLeft.textContent)-1;
+
         // win scenario //
         if (playerChoice === computerChoice) {
-            playerWins.textContent = parseInt(playerWins.textContent)+1; 
+            playerWins.textContent = parseInt(playerWins.textContent)+1;
+            playerGuessArray.length = 0; 
+            guessesLeft.textContent = 9;
+            alert("You are wise for your years...you win!");
         }
 
-
-        
         // lose scenario //
-        
+        else if (guessesLeft.textContent < 1) {
+            playerLoses.textContent = parseInt(playerLoses.textContent)+1;
+            playerGuessArray.length = 0;
+            guessesLeft.textContent = 9;
+            alert("You lose...better luck next time.");  
+        }
 
-
-    }
+    };
 
 
 </script>
